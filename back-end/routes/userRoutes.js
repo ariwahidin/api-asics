@@ -4,8 +4,18 @@ const userController = require('../controllers/userController');
 const authenticateJWT = require('../middleware/authenticateJWT');
 const router = express.Router();
 
+
+
+
 // router.post('/register', userController.registerUser);
+
+
+
+
+
+
 router.post('/login', userController.loginUser);
+
 router.post('/logout', authenticateJWT, userController.logoutUser);
 router.post('/refreshToken', userController.refreshToken);
 

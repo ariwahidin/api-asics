@@ -34,7 +34,11 @@ exports.loginUser = async (req, res) => {
 
             res.cookie('token', accessToken, { httpOnly: true });
             res.cookie('refreshToken', refreshToken, { httpOnly: true });
-            res.json({ message: 'Login successful' });
+            res.json({
+                message: 'Login successful',
+                token: accessToken,
+                refreshToken: refreshToken
+            });
         } else {
             res.status(401).json({ message: 'Invalid credentials' });
         }

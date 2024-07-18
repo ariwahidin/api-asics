@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const setupSwagger = require('./swagger');
 const userRoutes = require('./routes/userRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const port = 3003;
@@ -14,6 +15,10 @@ app.use(cookieParser());
 app.use(baseUrl + '/api/auth', userRoutes);
 app.use(baseUrl + '/api/user', userRoutes);
 app.use(baseUrl + '/api/order', orderRoutes);
+
+
+// Tambahkan konfigurasi Swagger dinamis
+setupSwagger(app);
 
 // Mulai server
 app.listen(port, () => {

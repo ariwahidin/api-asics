@@ -5,6 +5,7 @@ const authenticateJWT = require('../middleware/authenticateJWT');
 const router = express.Router();
 
 // router.get('/all', authenticateJWT, orderController.getAllOrderBySPK);
+router.get('/allDelivery', authenticateJWT, orderController.getAllOrderByDelivery);
 router.get('/delivery', authenticateJWT, orderController.getAllOrderByDelivery);
 
 module.exports = router;
