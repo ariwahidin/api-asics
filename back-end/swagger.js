@@ -33,7 +33,7 @@ module.exports = (app) => {
     // Route to serve the Swagger docs
     app.use('/py-asics/api-docs', (req, res, next) => {
         const host = req.get('host');
-        const protocol = req.secure ? 'https' : 'http'; // Mendapatkan protokol yang benar
+        let protocol = req.secure ? 'https' : 'http'; // Mendapatkan protokol yang benar
         if(host == 'yusen-id.com'){
             protocol = 'https';
         }
