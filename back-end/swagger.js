@@ -34,6 +34,9 @@ module.exports = (app) => {
     app.use('/py-asics/api-docs', (req, res, next) => {
         const host = req.get('host');
         const protocol = req.secure ? 'https' : 'http'; // Mendapatkan protokol yang benar
+        if(host == 'yusen-id.com'){
+            protocol = 'https';
+        }
         const swaggerSpec = {
             ...specs,
             servers: [
