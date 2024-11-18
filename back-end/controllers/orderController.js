@@ -33,9 +33,6 @@ exports.getAllOrderBySPK = async (req, res) => {
             })
         });
 
-        // console.log(orders);
-        // console.log(orders);
-
 
         res.json({ data: Object.values(orders) });
     } catch (error) {
@@ -65,10 +62,14 @@ exports.getAllOrderByDelivery = async (req, res) => {
             sqlOrder += ` WHERE s.order_no = ?`;
             queryParams.push(orderNumber);
         }
-        
+
         const [results] = await db.query(sqlOrder, queryParams);
 
-        res.json({ data: results });
+        res.json({
+            status: true,
+            message: "success",
+            data: results
+        });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
